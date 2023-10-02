@@ -1,0 +1,9 @@
+{
+  "login.form.email": "Email",
+  "login.form.email.required": "Please insert your email",
+  "login.form.email.invalid": "Please insert a valid email",
+  "login.form.password": "Password",
+  "login.form.password.required": "Please insert your password",
+  "login.form.remember-me": "Remember me",
+  "login.form.login": "Log in"
+}

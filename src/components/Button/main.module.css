@@ -1,0 +1,66 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease-in-out;
+}
+.button:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+}
+.button[data-variant='primary'] {
+  background-color: var(--primary-bg);
+  color: var(--primary-txt);
+}
+.button[data-variant='neutral'] {
+  background-color: var(--neutral-bg);
+  color: var(--neutral-txt);
+}
+.button[data-variant='info'] {
+  background-color: var(--info-bg);
+  color: var(--info-txt);
+}
+.button[data-variant='success'] {
+  background-color: var(--success-bg);
+  color: var(--success-txt);
+}
+.button[data-variant='warning'] {
+  background-color: var(--warning-bg);
+  color: var(--warning-txt);
+}
+.button[data-variant='danger'] {
+  background-color: var(--danger-bg);
+  color: var(--danger-txt);
+}
+.button[data-size='xs'] {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+.button[data-size='sm'] {
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+}
+.button[data-size='md'] {
+  font-size: 1rem;
+  padding: 0.625rem 1rem;
+}
+.button[data-size='lg'] {
+  font-size: 1.125rem;
+  padding: 0.625rem 1rem;
+}
+.button[data-size='xl'] {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}

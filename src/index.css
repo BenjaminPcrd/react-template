@@ -1,0 +1,14 @@
+:root {
+  --primary-bg: #6D28D9;
+  --primary-txt: #EDE9FE;
+  --neutral-bg: #4B5563;
+  --neutral-txt: #F9FAFB;
+  --info-bg: #059669;
+  --info-txt: #EDE9FE;
+  --success-bg: #10B981;
+  --success-txt: #EDE9FE;
+  --warning-bg: #F59E0B;
+  --warning-txt: #FDEFEF;
+  --danger-bg: #EF4444;
+  --danger-txt: #FDEFEF;
+}
