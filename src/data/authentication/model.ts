@@ -1,10 +1,10 @@
-import { Dispatch, DispatchWithoutAction } from "react";
+import { Dispatch, DispatchWithoutAction, SetStateAction } from "react";
 
 export type User = {
   id: string;
   email: string;
-  familyName: string;
-  givenName: string;
+  familyName?: string;
+  givenName?: string;
   phoneNumber?: string;
   picture?: string;
 };
@@ -25,4 +25,10 @@ export type AuthContextType = {
   loading?: AuthLoading;
   login: Dispatch<LoginProps>;
   logout: DispatchWithoutAction;
+};
+
+export type AuthProviderType = {
+  setError: Dispatch<SetStateAction<AuthError | undefined>>;
+  setLoading: Dispatch<SetStateAction<AuthLoading | undefined>>;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
 };

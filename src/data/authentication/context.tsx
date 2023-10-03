@@ -1,7 +1,6 @@
 import {
   ReactNode,
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -13,10 +12,12 @@ import {
   AuthContextType,
   AuthLoading,
   AuthError,
-  LoginProps,
-} from "./types";
+  AuthProviderType,
+} from "./model";
+import { useFakeInitialize, useFakeLogin, useFakeLogout } from "./hook";
 
 const DefaultAuthContext: AuthContextType = {
+  loading: "INITIALIZE",
   login: () => {},
   logout: () => {},
 };
@@ -28,39 +29,18 @@ export const AuthContextProvider = ({ children }: { children?: ReactNode }) => {
   const [error, setError] = useState<AuthError>();
   const [user, setUser] = useState<User>();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(undefined);
-    }, 500);
-  }, []);
+  const provider: AuthProviderType = {
+    setError,
+    setLoading,
+    setUser,
+  };
 
-  const login = useCallback(({ email, password, rememberMe }: LoginProps) => {
-    setLoading("LOGIN");
-    setError(undefined);
-    setTimeout(() => {
-      if (email && password && rememberMe) {
-        setUser({
-          id: "123",
-          email,
-          familyName: "Doe",
-          givenName: "John",
-          picture: "https://placekitten.com/200/200",
-        });
-      } else {
-        setError("USER_NOT_FOUND");
-      }
-      setLoading(undefined);
-    }, 1000);
-  }, []);
+  const initialize = useFakeInitialize(provider);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => initialize(), []);
 
-  const logout = useCallback(() => {
-    setLoading("LOGOUT");
-    setTimeout(() => {
-      setUser(undefined);
-      setError(undefined);
-      setLoading(undefined);
-    }, 1000);
-  }, []);
+  const login = useFakeLogin(provider);
+  const logout = useFakeLogout(provider);
 
   const context = useMemo<AuthContextType>(
     () => ({ user, error, loading, login, logout }),

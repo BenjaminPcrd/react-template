@@ -1,4 +1,4 @@
-import { Locale, LocaleMessage } from "./type";
+import { Locale, LocaleMessage } from "./model";
 
 declare global {
   namespace FormatjsIntl {

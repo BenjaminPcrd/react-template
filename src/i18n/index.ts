@@ -1,7 +1,7 @@
 import { IntlConfig } from "react-intl";
 
 import translation from "./translations";
-import { Locale, LocaleMessages } from "./type";
+import { Locale, LocaleMessages } from "./model";
 
 const defaultLocale: Locale = Object.keys(translation)[0] as Locale;
 

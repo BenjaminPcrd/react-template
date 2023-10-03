@@ -12,7 +12,7 @@ type LoginForm = {
 
 export const Login = () => {
   const { formatMessage } = useIntl();
-  const { login, loading, error } = useAuthContext();
+  const { error, loading, login } = useAuthContext();
 
   const onFinish = (data: LoginForm) => {
     login({
