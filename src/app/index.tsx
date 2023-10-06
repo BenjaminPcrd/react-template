@@ -2,7 +2,7 @@ import { IntlProvider } from "react-intl";
 import { intlConfig } from "../i18n";
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
-import { AuthContextProvider } from "@/data/authentication";
+import { AuthProvider } from "@/data/authentication";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 export const App = () => {
@@ -11,9 +11,9 @@ export const App = () => {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <IntlProvider {...intlConfig}>
-          <AuthContextProvider>
+          <AuthProvider>
             <AppRoutes />
-          </AuthContextProvider>
+          </AuthProvider>
         </IntlProvider>
       </QueryClientProvider>
     </BrowserRouter>

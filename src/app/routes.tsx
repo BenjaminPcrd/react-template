@@ -8,7 +8,7 @@ export const AppRoutes = () => {
   if (user)
     return (
       <Routes>
-        <Route path="/page1" element={<Page1 />} />
+        <Route index path="/page1" element={<Page1 />} />
         <Route path="*" element={<Navigate to="/page1" />} />
       </Routes>
     );
@@ -16,7 +16,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="*" element={<Navigate to="/login" />} />,
+      <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
 };

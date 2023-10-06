@@ -1,30 +1,32 @@
-import { useCallback } from "react";
-import { AuthProviderType, LoginProps } from "./model";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { AuthContext } from "./context";
+import {
+  AuthContextType,
+  AuthError,
+  AuthLoading,
+  LoginProps,
+  User,
+} from "./model";
 
-export const useFakeInitialize = ({
-  setError,
-  setLoading,
-  setUser,
-}: AuthProviderType) =>
-  useCallback(() => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<User>();
+  const [error, setError] = useState<AuthError>();
+  const [loading, setLoading] = useState<AuthLoading | undefined>("INITIALIZE");
+
+  useEffect(() => {
     setTimeout(() => {
       setUser(undefined);
       setError(undefined);
       setLoading(undefined);
     }, 1000);
-  }, [setError, setLoading, setUser]);
+  }, []);
 
-export const useFakeLogin = ({
-  setError,
-  setLoading,
-  setUser,
-}: AuthProviderType) =>
-  useCallback(
+  const login = useCallback(
     ({ email, password }: LoginProps) => {
       setLoading("LOGIN");
       setError(undefined);
       setTimeout(() => {
-        if (email === "john.doe@email.com" && password === "password") {
+        if (email === "john.doe@email.com" && password === "aze") {
           setUser({
             id: "1",
             email,
@@ -33,7 +35,7 @@ export const useFakeLogin = ({
             phoneNumber: "+33612345678",
             picture: "https://placekitten.com/200/200",
           });
-        } else if (email === "admin@email.com" && password === "password") {
+        } else if (email === "admin@email.com" && password === "aze") {
           setUser({ id: "2", email });
         } else if (
           email !== "john.doe@email.com" &&
@@ -49,12 +51,7 @@ export const useFakeLogin = ({
     [setError, setLoading, setUser]
   );
 
-export const useFakeLogout = ({
-  setError,
-  setLoading,
-  setUser,
-}: AuthProviderType) =>
-  useCallback(() => {
+  const logout = useCallback(() => {
     setLoading("LOGOUT");
     setTimeout(() => {
       setUser(undefined);
@@ -62,3 +59,13 @@ export const useFakeLogout = ({
       setLoading(undefined);
     }, 1000);
   }, [setError, setLoading, setUser]);
+
+  const context = useMemo<AuthContextType>(
+    () => ({ user, error, loading, login, logout }),
+    [user, error, loading, login, logout]
+  );
+
+  return (
+    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
+  );
+};
