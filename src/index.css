@@ -12,3 +12,7 @@
   --danger-bg: #EF4444;
   --danger-txt: #FDEFEF;
 }
+
+body {
+  margin: 0px;
+}

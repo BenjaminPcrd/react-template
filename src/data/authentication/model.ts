@@ -3,10 +3,9 @@ import { Dispatch, DispatchWithoutAction } from "react";
 export type User = {
   id: string;
   email: string;
-  familyName?: string;
-  givenName?: string;
-  phoneNumber?: string;
-  picture?: string;
+  firstName?: string;
+  lastName?: string;
+  image?: string;
 };
 
 export type AuthLoading = "INITIALIZE" | "LOGIN" | "LOGOUT";

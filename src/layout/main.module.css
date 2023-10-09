@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  margin: 0px;
+}
+
+.sidebar {
+  width: 300px;
+}

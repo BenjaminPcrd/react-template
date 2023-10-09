@@ -30,10 +30,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           setUser({
             id: "1",
             email,
-            familyName: "Doe",
-            givenName: "John",
-            phoneNumber: "+33612345678",
-            picture: "https://placekitten.com/200/200",
+            firstName: "Doe",
+            lastName: "John",
+            image: "https://placekitten.com/200/200",
           });
         } else if (email === "admin@email.com" && password === "aze") {
           setUser({ id: "2", email });

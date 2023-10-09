@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Login, Page1 } from "@/pages";
+import { Login, Page1, Page2 } from "@/pages";
 import { useAuthContext } from "@/data/authentication";
+import { Layout } from "@/layout";
 
 export const AppRoutes = () => {
   const { user } = useAuthContext();
@@ -8,8 +9,11 @@ export const AppRoutes = () => {
   if (user)
     return (
       <Routes>
-        <Route index path="/page1" element={<Page1 />} />
-        <Route path="*" element={<Navigate to="/page1" />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/page1" element={<Page1 />} />
+          <Route path="/page2" element={<Page2 />} />
+          <Route path="*" element={<Navigate to="/page1" />} />
+        </Route>
       </Routes>
     );
 
