@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { getProducts, getProduct } from "./request";
-import { ProductModel, ProductCollection } from "@/data/api";
+import { ProductModel, ProductCollection } from "../model/product";
 
 export const useProducts = () =>
   useQuery<ProductCollection>("products", () => getProducts());

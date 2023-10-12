@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Login, Page1, Page2 } from "@/pages";
-import { useAuthContext } from "@/data/authentication";
-import { Layout } from "@/layout";
+import { Login, Page1, Page2 } from "../page";
+import { useAuthContext } from "../data/authentication";
+import { Layout } from "../layout";
 
 export const AppRoutes = () => {
   const { user } = useAuthContext();

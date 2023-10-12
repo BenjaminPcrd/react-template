@@ -1,6 +1,6 @@
 import { MessageFormatElement } from "react-intl";
 
-import translation from "./translations";
+import translation from "./translation";
 
 export type Locale = keyof typeof translation;
 export type LocaleMessage = keyof typeof translation.en;

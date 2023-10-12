@@ -1,4 +1,4 @@
-import { useAuthContext } from "@/data/authentication";
+import { useAuthContext } from "../../data/authentication";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { FormattedMessage, useIntl } from "react-intl";
